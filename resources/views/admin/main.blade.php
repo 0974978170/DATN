@@ -25,7 +25,6 @@
     </nav>
     <!-- /.navbar -->
 
-
     @include('admin.sidebar')
 
 
