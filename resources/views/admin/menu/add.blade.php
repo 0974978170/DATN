@@ -5,12 +5,11 @@
 @endsection
 
 @section('content')
-    <form action="" method="POST">
+    <form action="/admin/menus/add" method="POST">
         <div class="card-body">
-
             <div class="form-group">
                 <label for="menu">Tên Danh Mục</label>
-                <input type="text" name="menu" class="form-control" id="menu" placeholder="Enter name">
+                <input type="text" name="name" class="form-control" placeholder="Nhập Tên Danh Mục">
             </div>
 
             <div class="form-group">
@@ -49,6 +48,7 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Tạo Danh Mục</button>
         </div>
+        @csrf
     </form>
 @endsection
 
