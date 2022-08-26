@@ -17,7 +17,18 @@ Route::get('admin/users/login', [\App\Http\Controllers\Admin\Users\LoginControll
 Route::post('admin/users/login/store', [\App\Http\Controllers\Admin\Users\LoginController::class, 'store']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('admin', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin');
-    Route::get('admin/main', [\App\Http\Controllers\Admin\MainController::class, 'index']);
+
+    Route::prefix('admin')->group(function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin');
+        Route::get('main', [\App\Http\Controllers\Admin\MainController::class, 'index']);
+
+        #Menu
+        Route::prefix('menus')->group(function () {
+            Route::get('add', [\App\Http\Controllers\Admin\MenuController::class, 'create']);
+        });
+
+    });
+
 
 });
