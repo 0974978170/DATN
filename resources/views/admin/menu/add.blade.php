@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <form action="/admin/menus/add" method="POST">
         <div class="card-body">
             <div class="form-group">
