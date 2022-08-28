@@ -7,4 +7,6 @@
 {{--<!-- Ckeditor -->--}}
 {{--<script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>--}}
 
+<script src="/template/admin/js/main.js"></script>
+
 @yield('footer')
