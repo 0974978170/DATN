@@ -59,7 +59,7 @@
                 <div id="image_show">
 
                 </div>
-                <input type="hidden" name="thumb" id="thumb">
+                <input type="hidden" name="file" id="file">
             </div>
 
             <div class="form-group">
