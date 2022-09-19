@@ -47,9 +47,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        $this->productService->insert($request);
+
+        return redirect()->back();
     }
 
     /**
