@@ -33,7 +33,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên sản phẩm',
-            'file.required' => 'Ảnh sản phâm không được trống'
+            'thumb.required' => 'Ảnh sản phâm không được trống'
         ];
     }
 }
