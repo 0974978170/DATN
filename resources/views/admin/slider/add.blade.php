@@ -29,6 +29,11 @@
 
 
             <div class="form-group">
+                <label for="menu">Sắp Xếp</label>
+                <input type="number" name="sort_by" value="1" class="form-control" >
+            </div>
+
+            <div class="form-group">
                 <label>Kích Hoạt</label>
                 <div class="custom-control custom-radio">
                     <input class="custom-control-input" value="1" type="radio" id="active" name="active" checked="">
