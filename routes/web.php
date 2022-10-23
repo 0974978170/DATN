@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\MainControllers;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +72,11 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', [MainControllers::class, 'index']);
 Route::post('/services/load-product', [MainControllers::class, 'loadProduct']);
 Route::get('danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
+Route::get('san-pham/{id}-{slug}.html', [\App\Http\Controllers\ProductController::class, 'index']);
+
+#Cart
+Route::post('add-cart', [CartController::class, 'index']);
+Route::get('carts', [CartController::class, 'show']);
+Route::post('update-cart', [CartController::class, 'update']);
+Route::get('carts/delete/{id}', [CartController::class, 'remove']);
+Route::post('carts', [CartController::class, 'addCart']);
