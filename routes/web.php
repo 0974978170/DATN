@@ -69,3 +69,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [MainControllers::class, 'index']);
+Route::post('/services/load-product', [MainControllers::class, 'loadProduct']);
+Route::get('danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
