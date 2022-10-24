@@ -11,6 +11,8 @@
 
 <!-- Cart -->
 
+@include('cart')
+
 @yield('content')
 
 <!-- Slider -->
