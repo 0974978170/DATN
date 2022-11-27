@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\MainControllers;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,7 @@ Route::get('admin/users/login', [LoginController::class, 'index'])->name('login'
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
 Route::middleware(['auth'])->group(function () {
-
     Route::prefix('admin')->group(function () {
-
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('main', [MainController::class, 'index']);
 
@@ -61,9 +60,22 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [SliderController::class, 'destroy']);
         });
 
+        #User
+        Route::prefix('users')->group(function () {
+            Route::get('add', [UserController::class, 'create']);
+            Route::post('add', [UserController::class, 'store']);
+            Route::get('list', [UserController::class, 'index']);
+            Route::get('edit/{user}', [UserController::class, 'show']);
+            Route::post('edit/{user}', [UserController::class, 'update']);
+            Route::DELETE('destroy', [UserController::class, 'destroy']);
+        });
+
         #Upload
         Route::post('upload/services', [UploadController::class, 'store']);
 
+        #Cart
+        Route::get('customers', [\App\Http\Controllers\Admin\CartController::class, 'index']);
+        Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
     });
 
 

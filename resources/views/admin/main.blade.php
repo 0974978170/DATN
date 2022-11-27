@@ -21,6 +21,11 @@
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://shop.local/admin/users/login" role="button">
+                    Log out
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->

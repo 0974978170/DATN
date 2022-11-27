@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Users;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\CartService;
+use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 
-class LoginController extends Controller
+class CartController extends Controller
 {
+    protected $cart;
+    public function __construct(CartService $cart)
+    {
+        $this->cart = $cart;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +21,9 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return  view('admin.users.login', [
-            'title' => 'Đăng Nhập Hệ Thống'
+        return view('admin.carts.customer', [
+           'title' => 'Danh Sách Đơn Đặt Hàng',
+            'customers' => $this->cart->getCustomer()
         ]);
     }
 
@@ -40,44 +45,33 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email:filter',
-            'password' => 'required'
-        ]);
-
-        if (Auth::attempt([
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
-        ], $request->input('remember'))) {
-            $user = DB::table('users as u')
-                ->select('u.roles')
-                ->where('u.email', $request->input('email'))
-                ->get();
-            $id = $user[0]->roles;
-            Session::flash('id', $id);
-            return  redirect()->route('admin');
-        }
-
-        Session::flash('error', 'Email hoặc Password không đúng');
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Customer $customer)
     {
-        //
+        $carts = $this->cart->getProductForCart($customer);
+
+        return view('admin.carts.detail', [
+            'title' => 'Chi Tiết Đơn Hàng: ' . $customer->name,
+            'customer' => $customer,
+            'carts' => $carts
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
         //
     }
@@ -86,10 +80,10 @@ class LoginController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\c  $c
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -97,9 +91,10 @@ class LoginController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         //
     }

@@ -86,22 +86,22 @@
                 </li>
 
                 <!-- Product -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-upload"></i>
-                        <p> Sản Phẩm CSV
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/products/add" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Sản Phẩm CSV</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fa fa-upload"></i>--}}
+{{--                        <p> Sản Phẩm CSV--}}
+{{--                            <i class="right fas fa-angle-left"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="/admin/products/add" class="nav-link">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>Thêm Sản Phẩm CSV</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 <!-- Slider -->
                 <li class="nav-item">
@@ -146,6 +146,37 @@
 
                     </ul>
                 </li>
+
+                <!-- User -->
+{{--                @if(Session::get('id') == 1)--}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-images"></i>
+                        <p> User {{ Session::get('id') }}
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/users/add" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm User</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/users/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh Sách User</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+{{--                @endif--}}
+{{--                @if(Session::get('id') != 1)--}}
+{{--                    <li class="nav-item">lllllllllll</li>--}}
+{{--                @endif--}}
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
