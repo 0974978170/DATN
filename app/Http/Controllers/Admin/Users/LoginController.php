@@ -54,7 +54,7 @@ class LoginController extends Controller
                 ->where('u.email', $request->input('email'))
                 ->get();
             $id = $user[0]->roles;
-            Session::flash('id', $id);
+            Session::put('id', $id);
             return  redirect()->route('admin');
         }
 

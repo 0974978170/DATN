@@ -82,6 +82,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [MainControllers::class, 'index']);
+Route::get('/about', [MainControllers::class, 'show']);
+Route::get('/contact', [MainControllers::class, 'store']);
 Route::post('/services/load-product', [MainControllers::class, 'loadProduct']);
 Route::get('danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
 Route::get('san-pham/{id}-{slug}.html', [\App\Http\Controllers\ProductController::class, 'index']);

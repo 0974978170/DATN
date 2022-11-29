@@ -148,11 +148,11 @@
                 </li>
 
                 <!-- User -->
-{{--                @if(Session::get('id') == 1)--}}
+                @if(Session::get('id') == 1)
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-images"></i>
-                        <p> User {{ Session::get('id') }}
+                        <i class="nav-icon fas fa-users"></i>
+                        <p> User
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -172,10 +172,10 @@
 
                     </ul>
                 </li>
-{{--                @endif--}}
-{{--                @if(Session::get('id') != 1)--}}
-{{--                    <li class="nav-item">lllllllllll</li>--}}
-{{--                @endif--}}
+                @endif
+                @if(Session::get('id') != 1)
+                    <li class="nav-item"></li>
+                @endif
 
             </ul>
         </nav>

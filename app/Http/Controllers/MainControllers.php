@@ -66,7 +66,9 @@ class MainControllers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('contact', [
+            'title' => 'Liên Hệ'
+        ]);
     }
 
     /**
@@ -75,9 +77,11 @@ class MainControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('infomation', [
+            'title' => 'Thông Tin Về Shop'
+        ]);
     }
 
     /**
