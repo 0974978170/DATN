@@ -147,6 +147,25 @@
                     </ul>
                 </li>
 
+                <!-- Contact -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p> Liên Hệ
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/contacts/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh Sách Liên Hệ</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <!-- User -->
                 @if(Session::get('id') == 1)
                 <li class="nav-item">

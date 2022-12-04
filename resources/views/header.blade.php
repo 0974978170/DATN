@@ -141,11 +141,11 @@
             {!! $menusHtml !!}
 
             <li>
-                <a href="about.html">Thông tin</a>
+                <a href="/about">Thông tin</a>
             </li>
 
             <li>
-                <a href="contact.html">Liên hệ</a>
+                <a href="/contact">Liên hệ</a>
             </li>
         </ul>
     </div>

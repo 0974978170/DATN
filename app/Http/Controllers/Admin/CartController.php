@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\CartService;
+use App\Models\Cart;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -94,8 +95,17 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $customer = Customer::where('id', $request->input('id'))->first();
+        if ($customer) {
+            $customer->delete();
+            return response()->json([
+                'error' => false,
+                'message' => 'Xóa đơn hàng thành công'
+            ]);
+        }
+
+        return response()->json(['error' => true ]);
     }
 }

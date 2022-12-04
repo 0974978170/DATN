@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\MainControllers;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,12 +71,19 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [UserController::class, 'destroy']);
         });
 
+        #Contact
+        Route::prefix('contacts')->group(function () {
+            Route::get('list', [ContactController::class, 'index']);
+            Route::POST('edit', [ContactController::class, 'update']);
+        });
+
         #Upload
         Route::post('upload/services', [UploadController::class, 'store']);
 
         #Cart
         Route::get('customers', [\App\Http\Controllers\Admin\CartController::class, 'index']);
         Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
+        Route::DELETE('customers/destroy', [\App\Http\Controllers\Admin\CartController::class, 'destroy']);
     });
 
 
@@ -84,6 +92,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', [MainControllers::class, 'index']);
 Route::get('/about', [MainControllers::class, 'show']);
 Route::get('/contact', [MainControllers::class, 'store']);
+Route::post('/contact', [MainControllers::class, 'create']);
 Route::post('/services/load-product', [MainControllers::class, 'loadProduct']);
 Route::get('danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
 Route::get('san-pham/{id}-{slug}.html', [\App\Http\Controllers\ProductController::class, 'index']);

@@ -24,6 +24,24 @@ function removeRow(id, url)
     }
 }
 
+function updateRow(id, url)
+{
+        $.ajax({
+            type: 'POST',
+            datatype: 'JSON',
+            data: {id},
+            url: url,
+            success: function (result) {
+                if (result.error === false) {
+                    alert(result.message);
+                    location.reload();
+                } else {
+                    alert('Cập nhật không thành công. Vui lòng thử lại');
+                }
+            }
+        })
+}
+
 //Upload File
 
 $('#upload').change(function () {

@@ -78,8 +78,8 @@ class UserController extends Controller
             $User->gender = $request->inlineRadioOptions;
             $User->phone_number = $request->phoneNumber;
             $User->remember_token = Str::random(10);
-            $User->created_at = date('Y-m-d H:i:s');;
-            $User->updated_at = date('Y-m-d H:i:s');;
+            $User->created_at = date('Y-m-d H:i:s');
+            $User->updated_at = date('Y-m-d H:i:s');
             $User->save();
             Session::flash('success', 'Thêm User mới thành công');
             return redirect()->back();

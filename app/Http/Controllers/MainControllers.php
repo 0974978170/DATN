@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuService;
 use App\Http\Services\Slider\SliderService;
 use App\Http\Services\Product\ProductService;
+use Illuminate\Support\Facades\Session;
 
 class MainControllers extends Controller
 {
@@ -28,7 +30,7 @@ class MainControllers extends Controller
     public function index()
     {
         return view('main', [
-            'title' => "Shop Nước Hoa",
+            'title' => "Shop COZA STORE",
             'sliders' => $this->slider->show(),
             'menus' => $this->menu->show(),
             'products' => $this->product->get(),
@@ -37,6 +39,7 @@ class MainControllers extends Controller
 
     public function loadProduct(Request $request)
     {
+        dd(1);
         $page = $request->input('page', 0);
 
         $result = $this->product->get($page);
@@ -53,9 +56,18 @@ class MainControllers extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $Contact = new Contact();
+        $Contact->name = $request->Name;
+        $Contact->email = $request->Email;
+        $Contact->phone = $request->Phone;
+        $Contact->content = $request->Content;
+        $Contact->created_at = date('Y-m-d H:i:s');;
+        $Contact->updated_at = date('Y-m-d H:i:s');;
+        $Contact->save();
+        Session::flash('contact', 'Liên Hệ Thành Công');
+        return redirect()->back();
     }
 
     /**

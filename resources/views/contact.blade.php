@@ -23,8 +23,13 @@
         <span class="stext-109 cl4">
 				{{ $title }}
         </span>
+        @if(Session::has('contact'))
+            <div class="alert alert-success">
+                {{ Session::get('contact') }}
+            </div>
+        @endif
         <div class="col-sm-12 col-xs-12 iContent mt-5 mb-5">
-            <form method="" name="checkout_form" id="checkout_form">
+            <form method="POST" action="contact">
                 <div class="container">
                     <div class="row">
                         <div class="col-8">
@@ -79,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+                @csrf
             </form>
         </div>
     </div>
