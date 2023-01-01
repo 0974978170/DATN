@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Services\CartService;
 use App\Models\Cart;
+use App\Models\Contact;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -72,9 +74,32 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $contact = Customer::where('id', $request->input('id'))->first();
+        if ($contact->active_flag == 1) {
+            $contact->active_flag = 0;
+            $contact->save();
+            DB::table('carts')
+                ->where('customer_id', $request->input('id'))
+                ->update(['active_flag' => 0]);
+            return response()->json([
+                'error' => false,
+                'message' => 'Giao Hàng Không Thành Công'
+            ]);
+        } elseif ($contact->active_flag == 0) {
+            $contact->active_flag = 1;
+            $contact->save();
+            DB::table('carts')
+                ->where('customer_id', $request->input('id'))
+                ->update(['active_flag' => 1]);
+            return response()->json([
+                'error' => false,
+                'message' => 'Giao Hàng Thành Công'
+            ]);
+        }
+
+        return response()->json(['error' => true ]);
     }
 
     /**
