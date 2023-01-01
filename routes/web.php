@@ -83,6 +83,7 @@ Route::middleware(['auth'])->group(function () {
         #Cart
         Route::get('customers', [\App\Http\Controllers\Admin\CartController::class, 'index']);
         Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
+        Route::post('customers/edit', [\App\Http\Controllers\Admin\CartController::class, 'edit']);
         Route::DELETE('customers/destroy', [\App\Http\Controllers\Admin\CartController::class, 'destroy']);
     });
 

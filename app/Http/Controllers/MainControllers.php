@@ -39,7 +39,6 @@ class MainControllers extends Controller
 
     public function loadProduct(Request $request)
     {
-        dd(1);
         $page = $request->input('page', 0);
 
         $result = $this->product->get($page);

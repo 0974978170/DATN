@@ -196,6 +196,28 @@
                     <li class="nav-item"></li>
                 @endif
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p> Cài Đặt Tài Khoản
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/contacts/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thông Tin Tài khoản</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/contacts/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đổi Mật Khẩu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
