@@ -37,5 +37,25 @@
 
 <script src="/template/admin/js/main.js"></script>
 <script src="/template/admin/dist/js/pages/dashboard.js"></script>
+{{--<script>--}}
+{{--    const togglePassword = $('#togglePassword');--}}
+{{--    const password = $('#password');--}}
+
+{{--    togglePassword.click( () => {--}}
+{{--        console.log(123)--}}
+{{--        const type = password.prop('type') === 'password' ?--}}
+{{--            'text' : 'password';--}}
+{{--        password.attr('type', type);--}}
+{{--        togglePassword.toggle('bi-eye');--}}
+{{--    });--}}
+{{--</script>--}}
+<script>
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    $('#reservationdate1').datetimepicker({
+        format: 'L'
+    });
+</script>
 
 @yield('footer')

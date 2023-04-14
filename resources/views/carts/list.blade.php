@@ -11,13 +11,13 @@
 
 @include('cart')
 
-<form class="bg0 p-t-130 p-b-85" method="post">
+<form class="bg0 p-t-130 p-b-0" method="post">
     @include('admin.alert')
 
     @if (count($products) != 0)
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                <div class="col-lg-10 col-xl-7 m-lr-auto">
                     <div class="m-l-25 m-r--38 m-lr-0-xl">
                         <div class="wrap-table-shopping-cart">
                             @php $total = 0; @endphp
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+                <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto">
                     <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                         <h4 class="mtext-109 cl2 p-b-30">
                             Cart Totals
@@ -148,6 +148,10 @@
                 </div>
             </div>
         </div>
+</form>
+<form action="/vnpay_payment" method="POST">
+    @csrf
+    <button type="submit" name="redirect" class="mt-1 ml-auto mr-auto  mb-3 w-25 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Thanh Toán VNPAY</button>
 </form>
 @else
     <div class="text-center"><h2>Giỏ hàng trống</h2></div>

@@ -8,6 +8,7 @@ class UploadService
     {
         if ($request->hasFile('file')) {
             try {
+                dd($request->file('file'));
                 $name = $request->file('file')->getClientOriginalName();
                 $pathFull = 'upload/' . date("Y/m/d");
 

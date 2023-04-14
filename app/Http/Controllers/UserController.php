@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -188,5 +189,67 @@ class UserController extends Controller
         }
 
         return response()->json(['error' => true ]);
+    }
+
+    public function changePassword(Request $request)
+    {
+        return view('admin.users.change_password', [
+            'title' => 'Đổi mật khẩu',
+        ]);
+    }
+
+    public function statistics()
+    {
+        $count_sum = DB::table('carts as c')->where('active_flag', 1)->select(DB::raw('SUM(c.pty * c.price) as total_sales'))->get();
+        return view('admin.statistics.index', [
+            'title' => 'Thống Kê Doanh Thu',
+            'total_revenue' => $count_sum[0]->total_sales,
+        ]);
+    }
+
+    public function views(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'startDate' => 'required',
+            'endDate' => 'required'
+        ],
+            [
+                'startDate.required' => 'Vui Lòng Nhập Ngày Bắt Đầu',
+                'endDate.required' => 'Vui Lòng Nhập Ngày Kết Thúc'
+            ]
+        )->validate();
+
+        if ($request->startDate > $request->endDate) {
+            $validator = \Validator::make([], []);
+
+            $validator->errors()->add('error', 'Vui Lòng Chọn Khoảng Thời Gian Phù Hợp');
+
+            throw new \Illuminate\Validation\ValidationException($validator);
+        } else if ($request->startDate == $request->endDate) {
+            $key = explode('/', $request->startDate);
+            $count = DB::table('carts')
+                ->whereDate('created_at', $key[2] . '-' . $key[0] . '-' . $key[1])
+                ->where('active_flag', 1)
+                ->select(DB::raw('SUM(carts.pty * carts.price) as total'))->get();
+            $request->endDate = null;
+        } else {
+            $key1 = explode('/', $request->startDate);
+            $time1 = $key1[2] . '-' . $key1[0] . '-' . $key1[1];
+            $key2 = explode('/', $request->endDate);
+            $time2 = $key2[2] . '-' . $key2[0] . '-' . $key2[1];
+            $count = DB::table('carts')
+                ->whereDate('created_at', '>=', $time1)
+                ->whereDate('created_at', '<=', $time2)
+                ->where('active_flag', 1)
+                ->select(DB::raw('SUM(carts.pty * carts.price) as total'))->get();
+        }
+        $count_sum = DB::table('carts as c')->where('active_flag', 1)->select(DB::raw('SUM(c.pty * c.price) as total_sales'))->get();
+        return view('admin.statistics.view', [
+            'title' => 'Thống Kê Doanh Thu',
+            'total_revenue' => $count_sum[0]->total_sales,
+            'count' => $count[0]->total,
+            'times' => $request
+        ]);
+
     }
 }

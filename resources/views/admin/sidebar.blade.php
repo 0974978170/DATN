@@ -198,6 +198,23 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-money-bill"></i>
+                        <p> Doanh Thu
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/statistics/" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống Kê Doanh Thu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
                         <p> Cài Đặt Tài Khoản
                             <i class="right fas fa-angle-left"></i>
@@ -205,13 +222,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/contacts/list" class="nav-link">
+                            <a href="/admin/users/info" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thông Tin Tài khoản</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/contacts/list" class="nav-link">
+                            <a href="/admin/users/change-password" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Đổi Mật Khẩu</p>
                             </a>

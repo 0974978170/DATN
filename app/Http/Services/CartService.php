@@ -121,7 +121,10 @@ class CartService
                 'customer_id' => $customer_id,
                 'product_id' => $product->id,
                 'pty'   => $carts[$product->id],
-                'price' => $product->price_sale != 0 ? $product->price_sale : $product->price
+                'price' => $product->price_sale != 0 ? $product->price_sale : $product->price,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+
             ];
         }
 

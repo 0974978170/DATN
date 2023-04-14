@@ -23,11 +23,11 @@
                         Filter
                     </div>
 
-                    <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-                        <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-                        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                        Search
-                    </div>
+{{--                    <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">--}}
+{{--                        <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>--}}
+{{--                        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>--}}
+{{--                        Search--}}
+{{--                    </div>--}}
                 </div>
 
                 <!-- Search product -->
@@ -70,31 +70,30 @@
                             </ul>
                         </div>
 
-                        <div class="filter-col2 p-r-15 p-b-27">
-                            <div class="mtext-102 cl2 p-b-15">
-                                Price
-                            </div>
+{{--                        <div class="filter-col2 p-r-15 p-b-27">--}}
+{{--                            <div class="mtext-102 cl2 p-b-15">--}}
+{{--                                Price--}}
+{{--                            </div>--}}
 
-                            <ul>
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                        All
-                                    </a>
-                                </li>
+{{--                            <ul>--}}
+{{--                                <li class="p-b-6">--}}
+{{--                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">--}}
+{{--                                        All--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $0.00 - $50.00
-                                    </a>
-                                </li>
+{{--                                <li class="p-b-6">--}}
+{{--                                    <a href="#" class="filter-link stext-106 trans-04">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $50.00 - $100.00
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+{{--                                <li class="p-b-6">--}}
+{{--                                    <a href="#" class="filter-link stext-106 trans-04">--}}
+{{--                                        $50.00 - $100.00--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
 
 
                     </div>

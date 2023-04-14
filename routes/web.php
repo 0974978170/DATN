@@ -69,6 +69,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{user}', [UserController::class, 'show']);
             Route::post('edit/{user}', [UserController::class, 'update']);
             Route::DELETE('destroy', [UserController::class, 'destroy']);
+            Route::get('info', [LoginController::class, 'info']);
+            Route::get('change-password', [UserController::class, 'changePassword']);
+            Route::post('change-password', [LoginController::class, 'updatePassword']);
         });
 
         #Contact
@@ -85,6 +88,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
         Route::post('customers/edit', [\App\Http\Controllers\Admin\CartController::class, 'edit']);
         Route::DELETE('customers/destroy', [\App\Http\Controllers\Admin\CartController::class, 'destroy']);
+
+        #revenus statistics
+        Route::get('statistics', [UserController::class, 'statistics']);
+        Route::post('statistics/view', [UserController::class, 'views']);
     });
 
 
@@ -104,3 +111,7 @@ Route::get('carts', [CartController::class, 'show']);
 Route::post('update-cart', [CartController::class, 'update']);
 Route::get('carts/delete/{id}', [CartController::class, 'remove']);
 Route::post('carts', [CartController::class, 'addCart']);
+
+#VNPAY
+Route::post('vnpay_payment', [CartController::class, 'vnpay']);
+
